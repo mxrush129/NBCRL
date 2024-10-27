@@ -1,0 +1,8 @@
+2024-08-24 15:38:43.715 | INFO     | __main__:solve:65 - controller iteration: 1
+2024-08-24 15:38:43.715 | INFO     | __main__:solve:66 - all iteration ddpg train time: 65.1823329
+2024-08-24 15:38:43.715 | INFO     | __main__:solve:67 - all iteration learn time: 1.3450236999999987
+2024-08-24 15:38:43.715 | INFO     | __main__:solve:68 - all iteration counter examples generate time: 0
+2024-08-24 15:38:43.716 | INFO     | __main__:solve:69 - all iteration sos verify time: 0.31200979999999845
+2024-08-24 15:38:43.716 | INFO     | __main__:solve:71 - batch_size: 500
+2024-08-24 15:38:43.716 | INFO     | __main__:solve:72 - lr: 0.05
+2024-08-24 15:38:43.716 | INFO     | __main__:solve:73 - max_iter: 5

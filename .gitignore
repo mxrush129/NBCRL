@@ -1,0 +1,8 @@
+.idea
+*.pyc
+*.json
+test.py
+test1.py
+result.txt
+redundant/
+ComparativeExperiment/
