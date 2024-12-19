@@ -59,7 +59,6 @@ def train_barrier(example_name, controller):
         'margin': 2,
         "DEG_continuous": [2, 2, 1, 2],
         "learning_loops": 100,
-        # todo
         'max_iter': 5
     }
     Config = CegisConfig(**opts)
@@ -73,7 +72,6 @@ if __name__ == '__main__':
     np.random.seed(2024)
     torch.manual_seed(2024)
     example_name = 'C2'
-    # todo
     iter = 10
     B = None
     all_train_time = 0
@@ -86,8 +84,7 @@ if __name__ == '__main__':
         tmp_controller, train_time = train_by_ddpg(agent, env, replay_buffer)
         all_train_time += train_time
         controller = [tmp_controller]
-        # if i == 1:
-        #     controller = [1]
+        
         vis, barrier, t,current_loss = train_barrier(example_name, controller)
         all_bc_learn_time += t[0]
         all_counter_example_time += t[1]

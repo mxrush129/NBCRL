@@ -46,7 +46,7 @@ def train_barrier(example_name, controller):
     }
     Config = CegisConfig(**opts)
     cegis = Cegis(Config)
-    # print(cegis.solve())
+    
     vis, barrier, t,loss = cegis.solve()
     return vis, barrier, t
 

@@ -60,14 +60,13 @@ if __name__ == '__main__':
     all_bc_learn_time = 0
     all_counter_example_time = 0
     all_verify_time = 0
-    # need an example_name
+    
     agent, env, replay_buffer = ddpg_init(example_name)
     for i in range(iter):
         tmp_controller, train_time = train_by_ddpg(agent, env, replay_buffer)
         all_train_time += train_time
         controller = [tmp_controller]
-        # if i == 1:
-        #     controller = [1]
+        
         vis, barrier, t = train_barrier(example_name, controller)
         all_bc_learn_time += t[0]
         all_counter_example_time += t[1]

@@ -42,11 +42,11 @@ def fit(env, agent):
             if done:
                 print('The {}th unsafe trajectory'.format(i))
                 break
-    print(f"样本个数：{len(x)}")
+    print(f"sample num：{len(x)}")
     P = PolynomialFeatures(2, include_bias=False)
     X = P.fit_transform(x)
     model = Ridge(alpha=0.00, fit_intercept=False)
-    # model = LinearRegression()
+    
     model.fit(X, y)
 
 
@@ -94,11 +94,9 @@ def ddpg_init(example_name):
 
 
 def train_by_ddpg(agent, env, replay_buffer):
-    # todo
     num_episodes = 20
     minimal_size = 1000
     batch_size = 64
-    # device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
     return_list = []
     start_time = timeit.default_timer()
@@ -142,13 +140,3 @@ if __name__ == '__main__':
     plt.xlabel('Episodes')
     plt.ylabel('Returns')
     plt.title('DDPG')
-    # plt.show()
-    #
-    # mv_return = moving_average(return_list, 21)
-    # plt.plot(episodes_list, mv_return)
-    # plt.xlabel('Episodes')
-    # plt.ylabel('Returns')
-    # plt.title('DDPG')
-    # plt.show()
-
-    # simulation(env_name, agent)

@@ -54,7 +54,7 @@ if __name__ == '__main__':
     random.seed(2024)
     np.random.seed(2024)
     torch.manual_seed(2024)
-    ###
+    
 
     b1_hidden_neurons_values = [5, 10, 15, 20, 50]
     batch_sizes = [500, 1000, 1500, 2000, 5000]
@@ -62,9 +62,9 @@ if __name__ == '__main__':
     R_b_values = [0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
 
     results = []
-    ###
+    
     example_name = 'C10'
-    # todo
+    
     iter = 3
     B = None
     all_train_time = 0

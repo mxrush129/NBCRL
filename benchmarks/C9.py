@@ -70,8 +70,7 @@ if __name__ == '__main__':
         all_train_time += train_time
         controller = [tmp_controller]
         print(controller)
-        # if i == 1:
-        #     controller = [1]
+        
         vis, barrier, t = train_barrier(example_name, controller)
         all_bc_learn_time += t[0]
         all_counter_example_time += t[1]

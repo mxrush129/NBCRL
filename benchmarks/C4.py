@@ -40,12 +40,11 @@ def train_barrier(example_name, controller):
         'margin': 2,
         "DEG_continuous": [2, 2, 1, 2],
         "learning_loops": 100,
-        # todo
         'max_iter': 5
     }
     Config = CegisConfig(**opts)
     cegis = Cegis(Config)
-    # print(cegis.solve())
+    
     vis, barrier, t,loss = cegis.solve()
     return vis, barrier, t
 
@@ -69,12 +68,10 @@ if __name__ == '__main__':
         all_train_time += train_time
         controller = [tmp_controller]
         print(controller)
-        # print(type(controller))
         x1, x2 = sp.symbols('x1 x2')
         controller=[-0.122333688556166*x1**2 - 0.481137437777661*x1*x2 + 1.43916680467694*x1 - 0.629216073444153*x2**2 - 0.469764004097184*x2]
         print(controller)
-        # if i == 1:
-        #     controller = [1]
+        
         vis, barrier, t = train_barrier(example_name, controller)
         all_bc_learn_time += t[0]
         all_counter_example_time += t[1]

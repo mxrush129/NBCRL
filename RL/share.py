@@ -96,14 +96,4 @@ def compute_advantage(gamma, lmbda, td_delta):
     return torch.tensor(advantage_list, dtype=torch.float)
 
 
-# def simulation(env_name, agent):
-#     env = gym.make(env_name, render_mode="human")
-#     state, info = env.reset(seed=2024)
-#     done, truncated = False, False
-#     episode_return = 0
-#     while not done and not truncated:
-#         action = agent.take_action(state)
-#         next_state, reward, done, truncated, info = env.step(action)
-#         state = next_state
-#         episode_return += reward
-#     print(episode_return)
+

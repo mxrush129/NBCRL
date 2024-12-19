@@ -45,7 +45,7 @@ def train_barrier(example_name, controller):
     }
     Config = CegisConfig(**opts)
     cegis = Cegis(Config)
-    # print(cegis.solve())
+    
     vis, barrier, t,loss = cegis.solve()
     return vis, barrier, t
 
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     np.random.seed(2024)
     torch.manual_seed(2024)
     example_name = 'C8'
-    # todo
+    
     iter = 10
     B = None
     all_train_time = 0
@@ -69,12 +69,11 @@ if __name__ == '__main__':
         all_train_time += train_time
         controller = [tmp_controller]
         print(controller)
-        # print(type(controller))
+        
         x1, x2, x3 ,x4= sp.symbols('x1 x2 x3 x4')
         controller=[0.9002150492055848-0.00539574752046955*x1-0.002528158271563848*x2+0.005438143596106565*x3-0.03914655258969325*x4-0.030822612244918574*x1**2+0.03171499190282263*x1*x2+0.08844077620797547*x1*x3-0.02360484198789681*x1*x4-0.02038397743994904*x2**2-0.03216759427153882*x2*x3+0.008267802649426706*x2*x4-0.03621692547016895*x3**2+0.10590532301940392*x3*x4-0.026794146353019105*x4**2-0.012791429437680083*x1**3-0.031690755113896636*x1**2*x2-0.03088264949629078*x1**2*x3+0.053268023781768224*x1**2*x4+0.04225539439063492*x1*x2**2-0.29730785342187943*x1*x2*x3+0.22336189623783448*x1*x2*x4+0.25646739518893086*x1*x3**2-0.4436574584123578*x1*x3*x4+0.19812247078899764*x1*x4**2+0.008354876869606398*x2**3+0.04123716107547222*x2**2*x3-0.026326827213556177*x2**2*x4+0.08166418476787823*x2*x3**2-0.27170841291057474*x2*x3*x4+0.16791418484202622*x2*x4**2-0.11615169322076341*x3**3+0.4120094399324352*x3**2*x4-0.4544483686248528*x3*x4**2+0.15697211945364373*x4**3]
         print(controller)
-        # if i == 1:
-        #     controller = [1]
+        
         vis, barrier, t = train_barrier(example_name, controller)
         all_bc_learn_time += t[0]
         all_counter_example_time += t[1]

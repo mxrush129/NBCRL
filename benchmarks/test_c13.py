@@ -46,12 +46,10 @@ def train_barrier(example_name, controller,b1_hidden_neurons,batch_size,lr,R_b):
         'margin': 2,
         "DEG_continuous": [2, 2, 1, 2],
         "learning_loops": 100,
-        # todo
         'max_iter': 10
     }
     Config = CegisConfig(**opts)
     cegis = Cegis(Config)
-    # print(cegis.solve())
     vis, barrier, t,loss,iterbc = cegis.solve()
     return vis, barrier, t,loss,iterbc
 
@@ -63,7 +61,7 @@ if __name__ == '__main__':
     ###
 
     b1_hidden_neurons_values = [15]
-    # batch_sizes = [150,200,250,300,350,400,450,500,550,600,650,700,750,800,850,900,950, 1000, 1500, 2000, 5000]
+    
     batch_sizes = [1000, 1500, 2000, 5000]
     learning_rates = [0.001, 0.01,0.02,0.03,0.04, 0.05,0.06,0.07,0.08,0.09,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
     R_b_values = [0.1,0.2,0.3, 0.4, 0.5, 0.6, 0.7, 0.8]

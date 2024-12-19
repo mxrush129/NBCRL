@@ -14,7 +14,7 @@ class Net(nn.Module):
         self.bm1_lay1, self.bm1_lay2 = [], []
 
         #############################################################
-        # b网络
+        
         n_prev = self.input
         k = 1
         for n_hid, act in zip(config.b_hidden, config.b_act):
@@ -42,7 +42,7 @@ class Net(nn.Module):
         #############################################################
 
         #############################################################
-        # bm1_乘子网络
+        
         if len(config.bm_hidden) == 0:
             if config.bm is not None:
                 bm1 = nn.Parameter(torch.Tensor([config.bm]), requires_grad=False)
@@ -118,32 +118,6 @@ class Net(nn.Module):
         y = lay1[-1](y)
         return y
 
-    # def get_out_and_grad(self, x, xdot, act, lay1, lay2):
-    #     y = x
-    #     jacobian = torch.diag_embed(torch.ones(x.shape[0], self.input))
-    #     for idx, (layer1, layer2) in enumerate(zip(lay1[:-1], lay2)):
-    #         if act[idx] == 'SQUARE':
-    #             z = layer1(y)
-    #             y = z ** 2
-    #             jacobian = torch.matmul(torch.matmul(2 * torch.diag_embed(z), layer1.weight), jacobian)
-    #         elif act[idx] == 'SKIP':
-    #             z1 = layer1(y)
-    #             z2 = layer2(x)
-    #             y = z1 * z2
-    #             jacobian = torch.matmul(torch.diag_embed(z1), layer2.weight) + torch.matmul(
-    #                 torch.matmul(torch.diag_embed(z2), layer1.weight), jacobian)
-    #         elif act[idx] == 'MUL':
-    #             z1 = layer1(y)
-    #             z2 = layer2(y)
-    #             y = z1 * z2
-    #             grad = torch.matmul(torch.diag_embed(z1), layer2.weight) + torch.matmul(torch.diag_embed(z2),
-    #                                                                                     layer1.weight)
-    #             jacobian = torch.matmul(grad, jacobian)
-    #
-    #     y = lay1[-1](y)
-    #     jacobian = torch.matmul(lay1[-1].weight, jacobian)
-    #     grad_y = torch.sum(torch.mul(jacobian[:, 0, :], xdot), dim=1)
-    #     return y, grad_y
 
     def transform_data(self, data, f):
         ans = [torch.unsqueeze(torch.tensor(list(map(ff, data))), dim=1) for ff in f]
@@ -183,11 +157,11 @@ class Net(nn.Module):
         expr = []
         x = sp.symbols([['x{}'.format(i + 1) for i in range(self.input)]])
         #############################################################
-        # 第一个
+        
         expr_1 = self.sp_net(x, self.config.b_act, self.b1_lay1, self.b1_lay2)
         expr.append(expr_1)
         #############################################################
-        # 第三个 bm1
+        
         if len(self.config.bm_hidden) == 0:
             expr_3 = self.bm1_lay1[0].detach().numpy()[0]
         else:

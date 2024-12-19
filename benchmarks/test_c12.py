@@ -1,7 +1,4 @@
 import os, sys
-import sys, os
-import sys
-sys.path.append('/Users/hary/Desktop/投稿文章/DAC24_TCAD投稿/codes/TCAD')
 import random
 import timeit
 from copy import deepcopy
@@ -47,12 +44,12 @@ def train_barrier(example_name, controller,b1_hidden_neurons,batch_size,lr,R_b):
         'margin': 2,
         "DEG_continuous": [2, 2, 1, 2],
         "learning_loops": 100,
-        # todo
+        
         'max_iter': 5
     }
     Config = CegisConfig(**opts)
     cegis = Cegis(Config)
-    # print(cegis.solve())
+    
     vis, barrier, t,loss,iterbc = cegis.solve()
     return vis, barrier, t,loss,iterbc
 

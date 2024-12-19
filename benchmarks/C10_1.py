@@ -71,7 +71,7 @@ if __name__ == '__main__':
         all_train_time += train_time
         controller = [tmp_controller]
         print(controller)
-        # print(type(controller))
+        
         x1, x2, x3 ,x4, x5, x6= sp.symbols('x1 x2 x3 x4 x5 x6')
         controller = [(0.79197406661727) + (0.7524151033938165) * x1 - (1.6437397668244673) * x2 - (
             0.6623515384444854) * x3 + (0.16969669798446635) * x4 - (0.002028035869638553) * x5 + (
@@ -123,9 +123,7 @@ if __name__ == '__main__':
                           0.5542623487375353) * x5 ** 2 * x6 + (0.03327911814693471) * x5 * x6 ** 2 - (
                           0.009218046567513627) * x6 ** 3]
         print(controller)
-        print(controller)
-        # if i == 1:
-        #     controller = [1]
+        
         vis, barrier, t = train_barrier(example_name, controller)
         all_bc_learn_time += t[0]
         all_counter_example_time += t[1]
