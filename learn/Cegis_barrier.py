@@ -26,7 +26,9 @@ class Cegis:
                 print('Mosek can be used normally.')
 
         # if self.config.example.continuous:
+        # 这里是取点代码
         data = Data(self.config).generate_data_for_continuous()
+        # data = Data(self.config).generate_data_by_trajectory()
         # else:
         #     data = Data(self.config).generate_data()
         learner = Learner(self.config)
