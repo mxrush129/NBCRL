@@ -1,4 +1,7 @@
 import os, sys
+from pathlib import Path
+proj_path = str(Path(__file__).resolve().parents[1])
+sys.path.append(proj_path)
 import random
 import timeit
 from copy import deepcopy
@@ -47,7 +50,7 @@ def train_barrier(example_name, controller):
     Config = CegisConfig(**opts)
     cegis = Cegis(Config)
     # print(cegis.solve())
-    vis, barrier, t,loss = cegis.solve()
+    vis, barrier, t,loss, _ = cegis.solve()
     return vis, barrier, t
 
 

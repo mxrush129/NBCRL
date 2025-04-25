@@ -56,7 +56,7 @@ class Data:
         I, l1 = self.stimulate(self.get_data(self.ex.I_zones, batch_size))
         l1_dot = self.x2dotx(l1, self.ex.f)
         # 看一下生成的数据量
-        print(f"l1: {len(l1)}, I: {len(I)}, U: {len(U)}")
+        # print(f"l1: {len(l1)}, I: {len(I)}, U: {len(U)}")
         # 过滤一下点数量， 保证都是batch_size 个点
         if len(l1) > batch_size:
             l1 = l1[:batch_size]

@@ -91,6 +91,7 @@ class Cegis:
             print('Total learning time:{}'.format(t_learn))
             print('Total counter-examples generating time:{}'.format(t_cex))
             print('Total sos verifying time:{}'.format(t_sos))
+            print('Total time:{}'.format(t_learn + t_cex + t_sos))
             self.save_model(learner.net, barrier)
             # if self.config.example.n_obs == 2:
             #     draw = Draw(self.config.example, barrier[0])

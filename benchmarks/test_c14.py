@@ -1,5 +1,7 @@
 import os, sys
-
+from pathlib import Path
+proj_path = str(Path(__file__).resolve().parents[1])
+sys.path.append(proj_path)
 
 import random
 import timeit
