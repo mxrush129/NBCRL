@@ -57,9 +57,18 @@ class Data:
         l1_dot = self.x2dotx(l1, self.ex.f)
         # 看一下生成的数据量
         print(f"l1: {len(l1)}, I: {len(I)}, U: {len(U)}")
+        # 过滤一下点数量， 保证都是batch_size 个点
+        if len(l1) > batch_size:
+            l1 = l1[:batch_size]
+            l1_dot = l1_dot[:batch_size]
+        if len(I) > batch_size:
+            I = I[:batch_size]
+        if len(U) > batch_size:
+            U = U[:batch_size]
+        print(f"l1: {len(l1)}, I: {len(I)}, U: {len(U)}")
         return l1, I, U, l1_dot
 
-    def stimulate(self, begin_points, dt=0.01, steps=10):
+    def stimulate(self, begin_points, dt=0.01, steps=40):
         '''从I区域中的初始点出发，基于微分方程模拟轨迹，并将轨迹点分类到init和domain区域'''
         f = self.ex.f
         n = self.n
